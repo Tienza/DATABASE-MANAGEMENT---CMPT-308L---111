@@ -37,7 +37,7 @@ SELECT pid
   FROM products
  WHERE pid NOT IN (SELECT pid
                      FROM orders
-                    WHERE aid != 'a07') ORDER BY pid DESC;
+                    WHERE aid = 'a07') ORDER BY pid DESC;
 
 -- #6 Get the name, discounts, and city for all customers who place orders through agents in London or New York.
 SELECT name, discount, city
