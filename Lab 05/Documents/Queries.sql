@@ -1,43 +1,4 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- #1 Show the cities of agents booking an order for a customer whose id is 'c002'. Use joins; no subqueries.
+﻿-- #1 Show the cities of agents booking an order for a customer whose id is 'c002'. Use joins; no subqueries.
 SELECT agents.city
   FROM agents INNER JOIN orders
     ON orders.aid = agents.aid
@@ -80,8 +41,10 @@ SELECT customers.name, agents.name, customers.city
     ON customers.city = agents.city;
 
 -- #7 Show the name and city of customers who live in the city that makes the fewest different kinds of products. (Hint: Use count and group by on the Products table.)
-/*SELECT DISTINCT customers.name, customers.city
-FROM customers
-INNER JOIN products
-ON customers.city = products.city
-WHERE customers.city = 'Duluth';*/
+SELECT name, city
+  FROM customers
+ WHERE city in (SELECT city 
+                  FROM products
+              GROUP BY city
+              ORDER BY COUNT(products.city)
+                 LIMIT 1);

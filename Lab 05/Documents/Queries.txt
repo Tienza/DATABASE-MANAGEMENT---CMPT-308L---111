@@ -41,8 +41,10 @@ SELECT customers.name, agents.name, customers.city
     ON customers.city = agents.city;
 
 -- #7 Show the name and city of customers who live in the city that makes the fewest different kinds of products. (Hint: Use count and group by on the Products table.)
-/*SELECT customers.name, customers.city
-FROM customers
-INNER JOIN products
-ON customers.city = products.city;*/
-SELECT city, COUNT(products.city) FROM products GROUP BY(products.city)
+SELECT name, city
+  FROM customers
+ WHERE city in (SELECT city 
+                  FROM products
+              GROUP BY city
+              ORDER BY COUNT(products.city)
+                 LIMIT 1);
