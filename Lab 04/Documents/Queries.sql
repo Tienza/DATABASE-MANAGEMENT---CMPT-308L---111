@@ -16,12 +16,10 @@ SELECT pid
 
 -- #3 Get the ids and names of customers who did not place an order through agent a01.
 SELECT cid, name
-FROM customers
-WHERE cid IN(SELECT cid
-               FROM orders
-              WHERE cid NOT IN (SELECT cid
-                                 FROM orders
-                                WHERE aid = 'a01'));
+  FROM customers
+ WHERE cid NOT IN (SELECT cid
+	                 FROM orders
+                   WHERE aid = 'a01');
 
 -- #4 Get the ids of customers who ordered both product p01 and p07.
 SELECT cid
