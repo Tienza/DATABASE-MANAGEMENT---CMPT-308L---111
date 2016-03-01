@@ -1,0 +1,57 @@
+-- #1 Display the name and city of customers who live in any city that makes the most different kinds of products. (There are two cities that make the most different products. Return the name and city of customers from either one of those.)
+SELECT name, city
+  FROM customers
+ WHERE city in (SELECT city
+                  FROM products
+              GROUP BY city
+              ORDER BY COUNT(products.city) DESC
+                 LIMIT 1);
+
+-- #2 Display the names of products whose priceUSD is strictly above the average priceUSD, in reverse-alphabetical order.
+SELECT name, products.priceUSD
+  FROM products
+ WHERE products.priceUSD > (SELECT AVG(products.priceUSD)
+                            FROM products) ORDER BY name DESC;
+
+-- #3 Display the customer name, pid ordered, and the total for all orders, sorted by total from high to low.
+SELECT customers.name, orders.pid, orders.totalUSD
+  FROM orders INNER JOIN customers
+    ON orders.cid = customers.cid ORDER BY orders.totalUSD DESC;
+
+-- #4 Display all customer names (in alphabetical order) and their total ordered, and nothing more. Use coalesce to avoid showing NULLs.
+SELECT customers.name, COALESCE(SUM(orders.qty), 0) AS "TOTAL ORDERED"
+  FROM orders RIGHT OUTER JOIN customers
+    ON orders.cid = customers.cid GROUP BY customers.name
+
+ORDER BY SUM(orders.qty) ASC;
+
+-- #5 Display the names of all customers who bought products from agents based in Tokyo along with the names of the products they ordered, and the names of the agents who sold it to them.
+SELECT customers.name, products.name, agents.name
+  FROM orders INNER JOIN customers
+    ON orders.cid = customers.cid INNER JOIN products
+    ON orders.pid = products.pid INNER JOIN agents
+    ON orders.aid = agents.aid
+ WHERE agents.city = 'Tokyo';
+
+-- #6 Write a query to check the accuracy of the dollars column in the Orders table. This means calculating Orders.totalUSD from data in other tables and comparing those values to the values in Orders.totalUSD. Display all rows in Orders where Orders.totalUSD is incorrect, if any.\
+SELECT ((orders.qty * products.priceUSD) * (1 - (customers.discount / 100))) AS "Dollar Check", orders.totalUSD
+  FROM orders, customers, products
+ WHERE orders.cid = customers.cid 
+   AND orders.pid = products.pid 
+   AND ((orders.qty * products.priceUSD) * (1 - (customers.discount / 100))) != orders.totalUSD;
+
+-- #7 What’s the difference between a LEFT OUTER JOIN and a RIGHT OUTER JOIN? Give example queries in SQL to demonstrate. (Feel free to use the CAP2 database t make your points here.)
+SELECT orders.ordnum, customers.name
+FROM orders LEFT OUTER JOIN customers
+ON orders.cid = customers.cid;
+
+SELECT orders.ordnum, customers.name
+FROM orders RIGHT OUTER JOIN customers
+ON orders.cid = customers.cid;
+
+/* The difference between a LEFT OUTER JOIN and RIGHT OUTERS JOIN is simple the table which the OUT JOIN function uses as the reference table
+   meaning that, in the example above, should one choose to do a LEFT OUTER JOIN the fucntion will preserve all the value in orders that we 
+   are using to match and compare them to the results in the table on the right, resulting in now null because all values that exist in the 
+   LEFT exist in the right. Vice Versa if one were to choose to do a RIGHT OUTER JOIN the funtion will preserve all the values in the right
+   table and compare them to the left. However in this case there will be a null because the table on the right "customers" contains "Weland"
+   which does not exist in anywhere in the orders tables. */
