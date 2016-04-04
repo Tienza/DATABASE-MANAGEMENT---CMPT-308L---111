@@ -1,15 +1,15 @@
 -- Drops Existing tables to prevent possible overlap --
 
 DROP TABLE IF EXISTS people;
-DROP TABLE IF EXISTS singleActors;
-DROP TABLE IF EXISTS marriedActors;
-DROP TABLE IF EXISTS singleDirectors;
-DROP TABLE IF EXISTS marriedDirectors;
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS directors;
+DROP TABLE IF EXISTS married;
+DROP TABLE IF EXISTS movieData;
 
 -- People --
 CREATE TABLE people (
 	pid		CHAR(12) NOT NULL,
-	fistName	TEXT NOT NULL,
+	firstName	TEXT NOT NULL,
 	lastName	TEXT NOT NULL,
 	birthday	DATE NOT NULL,
 	heightIN	INTEGER NOT NULL,
@@ -21,29 +21,43 @@ CREATE TABLE people (
 	primary key(pid)	
 );
 
+-- Insert into People --
+INSERT INTO people (pid, firstName, lastName, birthday, heightIN, weightLBS, favColor, address, hairColor, eyeColor)
+	VALUES('mmlFs0qJkHS4', 'Siavash', 'Clair', '1960-02-23', '66', '141', 'Red', '8374 Chestnut Avenue Newington, CT 06111', 'Black', 'Brown');
+
+INSERT INTO people (pid, firstName, lastName, birthday, heightIN, weightLBS, favColor, address, hairColor, eyeColor)
+	VALUES('maYFd5HRfDZ0', 'Kevin', 'Abessa', '1960-11-02', '69', '154', 'Black', '5132 Front Street Loganville, GA 30052', 'Brown', 'Green');
+
+INSERT INTO people (pid, firstName, lastName, birthday, heightIN, weightLBS, favColor, address, hairColor, eyeColor)
+	VALUES('OIvttlEWR62f', 'Cyneheard', 'Giannino', '1960-12-01', '73', '182', 'Blue', '4517 Route 11 Lawrenceville, GA 30043', 'Blonde', 'Grey');
+	
+INSERT INTO people (pid, firstName, lastName, birthday, heightIN, weightLBS, favColor, address, hairColor, eyeColor)
+	VALUES('oQ86zGEowZOb', 'Sean', 'Connery', '1930-08-25', '74', '185', 'Grey', 'Sean Connery Creative Artists Agency 2000 Avenue of the Stars Los Angeles, CA 90067 USA', 'Black', 'Dark Brown');
+
 SELECT * FROM people;
 
--- Single Actors --
-CREATE TABLE singleActors (
+
+
+-- Actors --
+CREATE TABLE actors (
 	pid		CHAR(12) NOT NULL REFERENCES people(pid),
 	AGAD		DATE NOT NULL,
 	primary key(pid)
 );
 
-SELECT * FROM singleActors;
+-- Insert into Actors --
+INSERT INTO actors (pid, AGAD)
+	VALUES('maYFd5HRfDZ0', '1980-12-10');
 
--- Married Actors --
-CREATE TABLE marriedActors (
-	pid		CHAR(12) NOT NULL REFERENCES people(pid),
-	spouseName	TEXT NOT NULL,
-	AGAD		DATE NOT NUll,
-	primary key(pid)
-);
+INSERT INTO actors (pid, AGAD)
+	VALUES('oQ86zGEowZOb', '1980-11-20');
 
-SELECT * FROM marriedActors;
+SELECT * FROM actors;
 
--- Single Directors --
-CREATE TABLE singleDirectors (
+
+
+-- Directors --
+CREATE TABLE directors (
 	pid		CHAR(12) NOT NULL REFERENCES people(pid),
 	filmSchool	TEXT NOT NULL,
 	DGAD		DATE NOT NULL,
@@ -51,31 +65,105 @@ CREATE TABLE singleDirectors (
 	primary key(pid)	
 );
 
-SELECT * FROM singleDirectors;
+-- Insert into Directors --
+INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
+	VALUES('mmlFs0qJkHS4', 'University of Southern California', '1976-09-28', 'Canon');
 
--- Married Directors --
-CREATE TABLE marriedDirectors (
+INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
+	VALUES('OIvttlEWR62f', 'New York University', '1977-06-14', 'Sony');
+
+SELECT * FROM directors;
+
+
+
+-- Married --
+CREATE TABLE married (
 	pid		CHAR(12) NOT NULL REFERENCES people(pid),
-	spouseName	TEXT NOT NULL,
-	filmSchool	TEXT NOT NULL,
-	DGAD		DATE NOT NULL,
-	favLenMaker	TEXT NOT NULL,
+	spouseFName	TEXT NOT NULL,
+	spouseLName	TEXT NOT NULL,
 	primary key(pid)
-	
 );
 
-SELECT * FROM marriedDirectors;
+-- Insert into Married --
+INSERT INTO married (pid, spouseFName, spouseLName)
+	VALUES('oQ86zGEowZOb', 'Micheline', 'Roquebrune');
+
+INSERT INTO married (pid, spouseFName, spouseLName)
+	VALUES('mmlFs0qJkHS4', 'Charles', 'Manish');
+
+SELECT * FROM married;
+
+
 
 -- Movie Data --
 CREATE TABLE movieData (
+	mid		CHAR(12) NOT NULL,
 	mpaaNum		INTEGER NOT NULL,
 	name		TEXT NOT NULL,
 	releaseDate	DATE NOT NULL,
 	dbosUSD		INTEGER NOT NULL,
 	fbosUSD		INTEGER NOT NULL,
 	dvdbluSales	INTEGER NOT NULL,
-	primary key(mpaaNum)
+	primary key(mid)
 );
+
+-- Insert into Movie Data --
+INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdbluSales)
+	VALUES('2zTdAWwkh6h5', '379', 'Goldfinger', '1964-09-17', '51081062', '73800000', '3000000');
+
+INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdbluSales)
+	VALUES('QzyM1c45obgR', '684', 'If Chickens Flew', '2016-04-04', '35115402', '81957477', '51244781');
 
 SELECT * FROM movieData;
 
+
+
+-- Cast & Crew --
+CREATE TABLE castCrew (
+	pid	CHAR(12) NOT NULL REFERENCES people(pid),
+	mid	CHAR(12) NOT NULL REFERENCES movieData(mid),
+	role	TEXT NOT NULL,
+	primary key(pid, mid, role)
+);
+
+--Insert into Cast & Crew --
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('oQ86zGEowZOb', '2zTdAWwkh6h5', 'Actor');
+
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('maYFd5HRfDZ0', 'QzyM1c45obgR', 'Actor');
+
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('mmlFs0qJkHS4', '2zTdAWwkh6h5', 'Director');
+
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('OIvttlEWR62f', 'QzyM1c45obgR', 'Director');
+
+SELECT * FROM castCrew;
+
+-- Test Queries --
+SELECT * 
+  FROM people;
+
+SELECT * 
+  FROM people p, actors a
+ WHERE p.pid = a.pid;
+
+SELECT * 
+  FROM people p, directors d
+ WHERE p.pid = d.pid;
+
+SELECT * 
+  FROM movieData;
+
+SELECT * 
+  FROM people p,directors d 
+ WHERE p.pid = d.pid 
+   AND d.pid 
+    IN (SELECT pid 
+	  FROM castCrew 
+	 WHERE role = 'Director' 
+	   AND mid 
+	    IN (SELECT mid 
+		  FROM castCrew 
+		 WHERE pid = 'oQ86zGEowZOb'));
