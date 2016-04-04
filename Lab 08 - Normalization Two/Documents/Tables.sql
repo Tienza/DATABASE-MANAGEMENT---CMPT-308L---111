@@ -34,6 +34,9 @@ INSERT INTO people (pid, firstName, lastName, birthday, heightIN, weightLBS, fav
 INSERT INTO people (pid, firstName, lastName, birthday, heightIN, weightLBS, favColor, address, hairColor, eyeColor)
 	VALUES('oQ86zGEowZOb', 'Sean', 'Connery', '1930-08-25', '74', '185', 'Grey', 'Sean Connery Creative Artists Agency 2000 Avenue of the Stars Los Angeles, CA 90067 USA', 'Black', 'Dark Brown');
 
+INSERT INTO people (pid, firstName, lastName, birthday, heightIN, weightLBS, favColor, address, hairColor, eyeColor)
+	VALUES('g4UYAJq99kHX', 'Kristofor', 'Viktoras', '1940-06-04', '70', '161', 'Violet', '2623 Colonial Avenue Battle Creek, MI 49015', 'Red', 'Green');
+
 SELECT * FROM people;
 
 
@@ -51,6 +54,9 @@ INSERT INTO actors (pid, AGAD)
 
 INSERT INTO actors (pid, AGAD)
 	VALUES('oQ86zGEowZOb', '1980-11-20');
+
+INSERT INTO actors (pid, AGAD)
+	VALUES('mmlFs0qJkHS4', '1976-06-18');
 
 SELECT * FROM actors;
 
@@ -71,6 +77,12 @@ INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
 
 INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
 	VALUES('OIvttlEWR62f', 'New York University', '1977-06-14', 'Sony');
+
+INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
+	VALUES('maYFd5HRfDZ0', 'University of California, Los Angeles', '1975-03-20', 'Nikon');
+
+INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
+	VALUES('g4UYAJq99kHX', 'American Film Institute', '1976-09-29', 'Optic');
 
 SELECT * FROM directors;
 
@@ -114,6 +126,9 @@ INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdblu
 INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdbluSales)
 	VALUES('QzyM1c45obgR', '684', 'If Chickens Flew', '2016-04-04', '35115402', '81957477', '51244781');
 
+INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdbluSales)
+	VALUES('79RLd2JgkT3w', '513', 'Lamps', '1980-10-05', '68887855', '78045168', '65985695');
+
 SELECT * FROM movieData;
 
 
@@ -138,6 +153,15 @@ INSERT INTO castCrew (pid, mid, role)
 
 INSERT INTO castCrew (pid, mid, role)
 	VALUES('OIvttlEWR62f', 'QzyM1c45obgR', 'Director');
+
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('maYFd5HRfDZ0', 'QzyM1c45obgR', 'Director');
+
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('oQ86zGEowZOb', 'QzyM1c45obgR', 'Actor');
+
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('g4UYAJq99kHX', '79RLd2JgkT3w', 'Director');
 
 SELECT * FROM castCrew;
 
