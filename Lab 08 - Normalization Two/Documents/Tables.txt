@@ -189,6 +189,10 @@ SELECT *
 SELECT * 
   FROM movieData;
 
+SELECT * FROM people LEFT OUTER JOIN married ON people.pid = married.pid;
+
+
+-- Write a query to show all the directors with whom actor “Sean Connery” has worked. --
 SELECT * 
   FROM people p,directors d 
  WHERE p.pid = d.pid 
