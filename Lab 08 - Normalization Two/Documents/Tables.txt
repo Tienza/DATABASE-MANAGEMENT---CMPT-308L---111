@@ -8,13 +8,13 @@ DROP TABLE IF EXISTS movieData;
 
 -- People --
 CREATE TABLE people (
-	pid		CHAR(12) NOT NULL,
+	pid		CHAR(12) UNIQUE NOT NULL,
 	firstName	TEXT NOT NULL,
 	lastName	TEXT NOT NULL,
 	birthday	DATE NOT NULL,
 	heightIN	INTEGER NOT NULL,
 	weightLBS	INTEGER NOT NULL,
-	favColor	TEXT NOT NULL,
+	favColor	TEXT,
 	address		TEXT NOT NULL,
 	hairColor	TEXT NOT NULL,
 	eyeColor	TEXT NOT NULL,
@@ -44,7 +44,7 @@ SELECT * FROM people;
 -- Actors --
 CREATE TABLE actors (
 	pid		CHAR(12) NOT NULL REFERENCES people(pid),
-	AGAD		DATE NOT NULL,
+	AGAD		DATE,
 	primary key(pid)
 );
 
@@ -65,9 +65,9 @@ SELECT * FROM actors;
 -- Directors --
 CREATE TABLE directors (
 	pid		CHAR(12) NOT NULL REFERENCES people(pid),
-	filmSchool	TEXT NOT NULL,
-	DGAD		DATE NOT NULL,
-	favLenMaker	TEXT NOT NULL,
+	filmSchool	TEXT,
+	DGAD		DATE,
+	favLenMaker	TEXT,
 	primary key(pid)	
 );
 
@@ -113,7 +113,7 @@ SELECT * FROM married;
 -- Movie Data --
 CREATE TABLE movieData (
 	mid		CHAR(12) NOT NULL,
-	mpaaNum		INTEGER NOT NULL,
+	mpaaNum		INTEGER,
 	name		TEXT NOT NULL,
 	releaseDate	DATE NOT NULL,
 	dbosUSD		INTEGER NOT NULL,
