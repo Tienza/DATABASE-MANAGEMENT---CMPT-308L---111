@@ -84,6 +84,9 @@ INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
 INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
 	VALUES('g4UYAJq99kHX', 'American Film Institute', '1976-09-29', 'Optic');
 
+INSERT INTO directors (pid, filmSchool, DGAD, favLenMaker)
+	VALUES('oQ86zGEowZOb', 'California Institute of the Arts', '1979-09-30', 'Fuji Film');
+
 SELECT * FROM directors;
 
 
@@ -129,6 +132,9 @@ INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdblu
 INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdbluSales)
 	VALUES('79RLd2JgkT3w', '513', 'Lamps', '1980-10-05', '68887855', '78045168', '65985695');
 
+INSERT INTO movieDATA (mid, mpaaNum, name, releaseDate, dbosUSD, fbosUSD, dvdbluSales)
+	VALUES('r2usYTt3v2Y4', '12', 'Overboard', '1987-12-16', '94372486', '42056139', '94323561');
+
 SELECT * FROM movieData;
 
 
@@ -163,6 +169,9 @@ INSERT INTO castCrew (pid, mid, role)
 INSERT INTO castCrew (pid, mid, role)
 	VALUES('g4UYAJq99kHX', '79RLd2JgkT3w', 'Director');
 
+INSERT INTO castCrew (pid, mid, role)
+	VALUES('oQ86zGEowZOb', 'r2usYTt3v2Y4', 'Director');
+
 SELECT * FROM castCrew;
 
 -- Test Queries --
@@ -183,6 +192,7 @@ SELECT *
 SELECT * 
   FROM people p,directors d 
  WHERE p.pid = d.pid 
+   AND p.pid != 'oQ86zGEowZOb'
    AND d.pid 
     IN (SELECT pid 
 	  FROM castCrew 
