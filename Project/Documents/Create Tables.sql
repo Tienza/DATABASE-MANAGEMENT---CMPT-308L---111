@@ -189,6 +189,7 @@ DROP TABLE IF EXISTS greatCompany;
 
 CREATE TABLE greatCompany (
 	gcid		SERIAL UNIQUE NOT NULL,
+	pchid		INT NOT NULL REFERENCES vlkaFenryka(chid),
 	companyName	TEXT NOT NULL,
 	wolfLordName	TEXT NOT NULL,
 	badgeName	TEXT NOT NULL,
@@ -196,32 +197,32 @@ CREATE TABLE greatCompany (
 );
 
 -- Insert into Great Company --
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Company of the Great Wolf', 'Logan Grimnar', 'Wolf that Stalks the Stars');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Bloodmaws', 'Bran Redmaw', 'Bloodied Hunter');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Seawolves', 'Engir Krakendoom', 'Sea Wolf');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Sons of Morkai', 'Erik Morkai', 'Morkai');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Red Moons', 'Gunnar Red Moon', 'Wolf of the Red Moon');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Deathwolves', 'Harald Deathwolf', 'Great Devourer');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Stormwolves', 'Bjorn Stormwolf', 'Thunderwolf');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Ironwolves', 'Egil Iron Wolf', 'Iron Wolf');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Drakeslayers', 'Krom Dragongaze', 'Sun Wolf');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Blackmanes', 'Ragnar Blackmane', 'Blackmane');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Firehowlers', 'Sven Bloodhowl', 'Fire Breather');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Grimbloods', 'Kjarl Grimblood', 'Fire Wolf');
-INSERT INTO greatCompany(companyName, wolfLordName, badgeName)
-	VALUES('Wulfen', 'Bulveye, Axeman of Russ', 'Obsidian Stone Slab');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Company of the Great Wolf', 'Logan Grimnar', 'Wolf that Stalks the Stars');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Bloodmaws', 'Bran Redmaw', 'Bloodied Hunter');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Seawolves', 'Engir Krakendoom', 'Sea Wolf');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Sons of Morkai', 'Erik Morkai', 'Morkai');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Red Moons', 'Gunnar Red Moon', 'Wolf of the Red Moon');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Deathwolves', 'Harald Deathwolf', 'Great Devourer');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Stormwolves', 'Bjorn Stormwolf', 'Thunderwolf');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Ironwolves', 'Egil Iron Wolf', 'Iron Wolf');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Drakeslayers', 'Krom Dragongaze', 'Sun Wolf');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Blackmanes', 'Ragnar Blackmane', 'Blackmane');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Firehowlers', 'Sven Bloodhowl', 'Fire Breather');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Grimbloods', 'Kjarl Grimblood', 'Fire Wolf');
+INSERT INTO greatCompany(pchid, companyName, wolfLordName, badgeName)
+	VALUES(1, 'Wulfen', 'Bulveye, Axeman of Russ', 'Obsidian Stone Slab');
 
 SELECT * FROM greatCompany;
 
@@ -269,7 +270,7 @@ INSERT INTO astartes(rid, sid, gcid, fName, lName, serviceStart)
 INSERT INTO astartes(rid, sid, gcid, fName, lName, serviceStart)
 	VALUES(2, 5, 13, 'Bulveye', 'Axeman of Russ', '313 169.M30');
 
-SELECT * FROM astartes
+SELECT * FROM astartes;
 
 --------------------------------------------------------------------
 
@@ -278,4 +279,4 @@ SELECT * FROM astartes
 --------------------------------------------------------------------
 
 -- Test Quries --
--- SELECT * FROM greatCompany INNER JOIN astartes ON astartes.gcid = greatCompany.gcid;
+-- SELECT * FROM greatCompany g INNER JOIN astartes a ON a.gcid = g.gcid INNER JOIN rank r ON r.rid = a.rid INNER JOIN specialization s ON a.sid = s.sid INNER JOIN vlkaFenryka v ON g.pchid = v.chid;
