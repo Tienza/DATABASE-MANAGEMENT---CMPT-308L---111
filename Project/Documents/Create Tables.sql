@@ -486,7 +486,8 @@ DROP TABLE IF EXISTS gcArmaments;
 CREATE TABLE gcArmaments (
 	gcid		INT NOT NULL REFERENCES greatCompany(gcid),
 	eid		INT NOT NULL REFERENCES armaments(eid),
-	primary key(gcid, eid)
+	UNIQUE (gcid, eid),
+	primary key (gcid, eid)
 );
 
 -- Insert into gcArmaments --
@@ -1091,8 +1092,35 @@ SELECT * FROM gcArmaments;
 
 --------------------------------------------------------------------
 
+-- Create Issued Armaments Table --
+DROP TABLE IF EXISTS issuedArmaments;
+
+CREATE TABLE issuedArmaments (
+	aid		INT NOT NULL REFERENCES astartes(aid),
+	gcid		INT NOT NULL,
+	eid		INT NOT NULL,
+	foreign key(gcid, eid) REFERENCES gcArmaments(gcid, eid),
+	primary key(aid, gcid, eid)
+);
+
+-- Insert into Issued Armaments --
+SELECT * FROM armaments;
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(1, 1, 5);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(1, 1, 19);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(1, 1, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(1, 1, 33);
+
+SELECT * FROM issuedArmaments;
+
+--------------------------------------------------------------------
+
 -- Test Quries --
 -- SELECT * FROM greatCompany g INNER JOIN astartes a ON a.gcid = g.gcid INNER JOIN rank r ON r.rid = a.rid INNER JOIN specialization s ON a.sid = s.sid INNER JOIN vlkaFenryka v ON g.pchid = v.chid;
 -- SELECT * FROM geneseedHistory gh INNER JOIN astartes a ON gh.aid = a.aid INNER JOIN geneseedBank gs ON gs.gsid = gh.gsid;
 -- SELECT * FROM activeDreadnought ad INNER JOIN dreadnought d ON ad.did = d.did INNER JOIN astartes a ON ad.aid = a.aid INNER JOIN geneseedHistory gsh ON gsh.aid = a.aid INNER JOIN geneseedBank gsb on gsb.gsid = gsh.gsid;
--- SELECT * FROM gcArmaments gca INNER JOIN armaments a ON gca.eid = a.eid INNER JOIN greatCompany gc ON gc.gcid = gca.gcid WHERE gca.gcid = 3;
+-- SELECT * FROM gcArmaments gca INNER JOIN armaments a ON gca.eid = a.eid INNER JOIN greatCompany gc ON gc.gcid = gca.gcid WHERE gca.gcid = 13;
+-- SELECT * FROM astartes a INNER JOIN issuedArmaments  ia ON a.aid = ia.aid INNER JOIN armaments ar ON ia.eid = ar.eid;
