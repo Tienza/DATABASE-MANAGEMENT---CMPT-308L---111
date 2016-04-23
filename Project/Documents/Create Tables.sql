@@ -556,6 +556,536 @@ INSERT INTO gcArmaments(gcid, eid)
 	VALUES(1, 32);
 INSERT INTO gcArmaments(gcid, eid)
 	VALUES(1, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 10);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 12);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 29);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 32);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(2, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 4);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 12);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 15);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 16);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 20);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 29);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(3, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 4);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 12);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 15);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 16);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 20);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 29);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(4, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 4);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 7);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 8);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 9);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 10);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 12);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 15);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 16);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 20);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 26);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 29);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 32);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(5, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 26);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(6, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 26);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(7, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 29);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 32);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(8, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 4);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 7);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 8);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 9);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 10);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 12);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 15);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 16);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 20);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 26);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 29);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 32);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(9, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 4);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 7);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 10);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 12);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 15);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(10, 32);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 26);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(11, 33);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 26);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(12, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 4);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 15);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(13, 33);
 
 SELECT * FROM gcArmaments;
 
@@ -565,3 +1095,4 @@ SELECT * FROM gcArmaments;
 -- SELECT * FROM greatCompany g INNER JOIN astartes a ON a.gcid = g.gcid INNER JOIN rank r ON r.rid = a.rid INNER JOIN specialization s ON a.sid = s.sid INNER JOIN vlkaFenryka v ON g.pchid = v.chid;
 -- SELECT * FROM geneseedHistory gh INNER JOIN astartes a ON gh.aid = a.aid INNER JOIN geneseedBank gs ON gs.gsid = gh.gsid;
 -- SELECT * FROM activeDreadnought ad INNER JOIN dreadnought d ON ad.did = d.did INNER JOIN astartes a ON ad.aid = a.aid INNER JOIN geneseedHistory gsh ON gsh.aid = a.aid INNER JOIN geneseedBank gsb on gsb.gsid = gsh.gsid;
+-- SELECT * FROM gcArmaments gca INNER JOIN armaments a ON gca.eid = a.eid INNER JOIN greatCompany gc ON gc.gcid = gca.gcid WHERE gca.gcid = 3;
