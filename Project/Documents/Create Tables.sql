@@ -340,7 +340,7 @@ INSERT INTO geneseedHistory(gsid, aid, dateOfImplant)
 INSERT INTO geneseedHistory(gsid, aid, dateOfImplant)
 	VALUES(14, 15, '966 203.M33');
 
-SELECT * FROM geneseedHistory
+SELECT * FROM geneseedHistory;
 
 --------------------------------------------------------------------
 
@@ -436,8 +436,129 @@ INSERT INTO armaments(type, mrkDesignation, eName)
 	VALUES('Armour', 'VII', 'Aquila Pattern Power Armour');
 INSERT INTO armaments(type, mrkDesignation, eName)
 	VALUES('Armour', 'VIII', 'Errant Pattern Power Armour');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Armour', 'I', 'Cataphractii Pattern Tactical Dreadnought Armour');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Armour', 'II', 'Indomitus Pattern Tactical Dreadnought Armour');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Armour', 'III', 'Gorgon Pattern Tactical Dreadnought Armour');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Armour', 'IV', 'Tartaros Pattern Tactical Dreadnought Armour');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Armour', 'V', 'Aegis Terminator Armour');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'Ib', 'Mars Patter Rhino Transport');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'Ib', 'Deimos Pattern Rhino');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'X', 'Kronos Pattern Predaor');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'Vb', 'Kaurava Pattern Whirlwind');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'IX', 'Armageddon Pattern Landraider');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'X', 'Skylander Pattern Thunderhawk');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'IX', 'Tempest Pattern Land Speeder');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Vehicle', 'XII', 'Fenris Pattern Storm Talon');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Mod', 'I', 'Night Vision');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Mod', 'V', 'Stormwind Pattern Jetpack');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Mod', 'X', 'Iron Halo');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Mod', 'VI', 'Machine Spirit Core');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Mod', 'IX', 'Stealth Drive');
+INSERT INTO armaments(type, mrkDesignation, eName)
+	VALUES('Mod', 'III', 'Teleporter');
+
 
 SELECT * FROM armaments;
+
+--------------------------------------------------------------------
+
+-- Create Great Company Armaments Table --
+DROP TABLE IF EXISTS gcArmaments;
+
+CREATE TABLE gcArmaments (
+	gcid		INT NOT NULL REFERENCES greatCompany(gcid),
+	eid		INT NOT NULL REFERENCES armaments(eid),
+	primary key(gcid, eid)
+);
+
+-- Insert into gcArmaments --
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 1);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 2);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 3);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 4);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 5);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 6);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 7);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 8);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 9);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 10);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 11);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 12);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 13);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 14);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 15);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 16);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 17);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 18);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 19);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 20);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 21);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 22);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 23);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 24);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 25);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 26);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 27);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 28);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 29);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 30);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 31);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 32);
+INSERT INTO gcArmaments(gcid, eid)
+	VALUES(1, 33);
+
+SELECT * FROM gcArmaments;
+
 --------------------------------------------------------------------
 
 -- Test Quries --
