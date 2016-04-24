@@ -16,8 +16,7 @@ DROP TABLE IF EXISTS activeMods;
 DROP TABLE IF EXISTS vehicle;
 DROP TABLE IF EXISTS weapons;
 DROP TABLE IF EXISTS armour;
-DROP TABLE IF EXISTS armamentMods;
-DROP TABLE IF EXISTS activeMods;*/
+DROP TABLE IF EXISTS mods;*/
 
 -- Create Main Vlka Fenryka Table --
 DROP TABLE IF EXISTS vlkaFenryka;
@@ -1307,6 +1306,53 @@ CREATE TABLE vehicle (
 	primary key(vid)
 );
 
+-- Insert into Vehicle --
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(20, 'Transport', 'Tundra');
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(21, 'Transport', 'Jungle');
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(22, 'Tank', 'Multi-Ground');
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(23, 'Support', 'Rocky');
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(24, 'Tank', 'Multi-Ground');
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(25, 'Air Transport', 'Open Sky');
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(26, 'Air Assault', 'Open Sky');
+INSERT INTO vehicle(vid, vtype, terrain)
+	VALUES(27, 'Air Assault', 'Open Sky');
+
+SELECT * FROM vehicle;
+
+--------------------------------------------------------------------
+
+-- Create Mods Subtype Table --
+DROP TABLE IF EXISTS mods;
+
+CREATe TABLE mods (
+	mid 		INT UNIQUE NOT NULL REFERENCES armaments(eid),
+	mEffect		TEXT NOT NULL,
+	primary key(mid)
+);
+
+-- Insert into Mods --
+INSERT INTO mods(mid, mEffect)
+	VALUES(28, 'Low-Light Vision');
+INSERT INTO mods(mid, mEffect)
+	VALUES(29, 'Short-Range Flight');
+INSERT INTO mods(mid, mEffect)
+	VALUES(30, 'Force Field');
+INSERT INTO mods(mid, mEffect)
+	VALUES(31, 'Machine Affinity');
+INSERT INTO mods(mid, mEffect)
+	VALUES(32, 'Invisibility');
+INSERT INTO mods(mid, mEffect)
+	VALUES(33, 'Teleportation');
+
+SELECT * FROM mods;
+
 --------------------------------------------------------------------
 
 -- Test Quries --
@@ -1317,3 +1363,5 @@ CREATE TABLE vehicle (
 -- SELECT * FROM astartes a INNER JOIN issuedArmaments  ia ON a.aid = ia.aid INNER JOIN armaments ar ON ia.eid = ar.eid;
 -- SELECT * FROM armaments a INNER JOIN weapons w ON a.eid = w.wid;
 -- SELECT * FROM armaments a INNER JOIN armour ar ON a.eid = ar.arid;
+-- SELECT * FROM armaments a INNER JOIN vehicle v ON a.eid = v.vid;
+-- SELECT * FROM armaments a INNER JOIN mods m ON a.eid = m.mid;
