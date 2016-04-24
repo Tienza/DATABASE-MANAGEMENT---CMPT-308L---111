@@ -1446,6 +1446,42 @@ INNER JOIN weaponInfo wi
 ON ia.eid = wi.eid;
 
 SELECT * FROM spacemarineWeapons;
+
+-- Create Spacemarine Armour View --
+DROP VIEW IF EXISTS spacemarineArmour;
+
+CREATE OR REPLACE VIEW spacemarineArmour AS
+SELECT a.aid, a.fname, a.lname, ar.mrkdesignation, ar.ename, ar.atype, ar.plating
+FROM astartes a INNER JOIN issuedArmaments ia
+ON a.aid = ia.aid
+INNER JOIN armourInfo ar
+ON ia.eid = ar.eid;
+
+SELECT * FROM spacemarineArmour;
+
+-- Create Spacemarine Mod View --
+Drop VIEW IF EXISTS spacemarineMods; 
+
+CREATE OR REPLACE VIEW spacemarineMods AS
+SELECT a.aid, a.fname, a.lname, mi.mrkdesignation, mi.ename, mi.meffect
+FROM astartes a INNER JOIN issuedArmaments ia
+ON a.aid = ia.aid
+INNER JOIN modInfo mi
+ON ia.eid = mi.eid;
+
+SELECT * FROM spacemarineMods;
+
+-- Create Union View For Space Marine Equipment --
+DROP VIEW IF EXISTS spacemarineEquipment;
+
+CREATE OR REPLACE VIEW spacemarineEquipment AS
+SELECT aid, fname, lname, ename FROM spacemarineWeapons 
+UNION
+SELECT aid, fname, lname, ename FROM spacemarineArmour
+UNION
+SELECT aid, fname, lname, ename FROM spacemarineMods;
+
+SELECT * FROM spacemarineEquipment;
 --------------------------------------------------------------------
 
 -- Test Quries --
