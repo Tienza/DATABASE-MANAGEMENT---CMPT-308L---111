@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS armaments;
 DROP TABLE IF EXISTS activeMods;
 DROP TABLE IF EXISTS vehicle;
 DROP TABLE IF EXISTS weapons;
-DROP TABLE IF EXISTS armor;
+DROP TABLE IF EXISTS armour;
 DROP TABLE IF EXISTS armamentMods;
 DROP TABLE IF EXISTS activeMods;*/
 
@@ -1104,8 +1104,6 @@ CREATE TABLE issuedArmaments (
 );
 
 -- Insert into Issued Armaments --
-SELECT * FROM armaments;
-SELECT * FROM astartes;
 INSERT INTO issuedArmaments(aid, gcid, eid)
 	VALUES(1, 1, 5);
 INSERT INTO issuedArmaments(aid, gcid, eid)
@@ -1229,9 +1227,93 @@ SELECT * FROM issuedArmaments;
 
 --------------------------------------------------------------------
 
+-- Create Weapons Subtype Table --
+DROP TABLE IF EXISTS weapons;
+
+CREATE TABLE weapons (
+	wid		INT UNiQUE NOT NULL REFERENCES armaments(eid),
+	wtype		TEXT NOT NULL,
+	ammo		TEXT NOT NULL,
+	primary key(wid)	
+);
+
+-- Insert into Weapons --
+INSERT INTO weapons(wid, wtype, ammo)
+	VALUES(1, 'Range', '.75 Calibre Rounds');
+INSERT INTO weapons(wid, wtype, ammo)
+	VALUES(2, 'Range', '.75 Calibre Rounds');
+INSERT INTO weapons(wid, wtype, ammo)
+	VALUES(3, 'Melee', 'NA');
+INSERT INTO weapons(wid, wtype, ammo)
+	VALUES(4, 'Melee', 'NA');
+INSERT INTO weapons(wid, wtype, ammo)
+	VALUES(5, 'Melee', 'NA');
+INSERT INTO weapons(wid, wtype, ammo)
+	VALUES(6, 'Melee', 'NA');
+
+SELECT * FROM weapons;
+
+--------------------------------------------------------------------
+
+-- Create Armour Subtype Table --
+DROP TABLE IF EXISTS armour;
+
+CREATE TABLE armour (
+	arid		INT UNIQUE NOT NULL REFERENCES armaments(eid),
+	atype		TEXT NOT NULL,
+	plating		TEXT NOT NULL,
+	primary key(arid)
+);
+
+-- Insert into Armour --
+INSERT INTO armour(arid, atype, plating)
+	VALUES(7, 'Assault', 'Titanium');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(8, 'Assault', 'Tungsten');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(9, 'Assault', 'Inconel');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(10, 'Tactical', 'Adamantium');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(11, 'Tactical', 'Ceremite');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(12, 'Tactical', 'Carabonite');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(13, 'Crusader', 'Bearalite');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(14, 'Crusader', 'Doragonite');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(15, 'Devastator', 'Cataphractii');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(16, 'Devastator', 'Indomatus');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(17, 'Knight', 'Gorganian');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(18, 'Terminator', 'Taratereatus');
+INSERT INTO armour(arid, atype, plating)
+	VALUES(19, 'Terminator', 'Blessed Aegis');
+
+SELECT * FROM armour;
+
+--------------------------------------------------------------------
+
+-- Create Vehicle Subtype Table --
+DROP TABLE IF EXISTS vehicle;
+
+CREATE TABLE vehicle (
+	vid		INT UNIQUE NOT NULL REFERENCES armaments(eid),
+	vtype		TEXT NOT NULL,
+	terrain		TEXT NOT NULL,
+	primary key(vid)
+);
+
+--------------------------------------------------------------------
+
 -- Test Quries --
 -- SELECT * FROM greatCompany g INNER JOIN astartes a ON a.gcid = g.gcid INNER JOIN rank r ON r.rid = a.rid INNER JOIN specialization s ON a.sid = s.sid INNER JOIN vlkaFenryka v ON g.pchid = v.chid;
 -- SELECT * FROM geneseedHistory gh INNER JOIN astartes a ON gh.aid = a.aid INNER JOIN geneseedBank gs ON gs.gsid = gh.gsid;
 -- SELECT * FROM activeDreadnought ad INNER JOIN dreadnought d ON ad.did = d.did INNER JOIN astartes a ON ad.aid = a.aid INNER JOIN geneseedHistory gsh ON gsh.aid = a.aid INNER JOIN geneseedBank gsb on gsb.gsid = gsh.gsid;
 -- SELECT * FROM gcArmaments gca INNER JOIN armaments a ON gca.eid = a.eid INNER JOIN greatCompany gc ON gc.gcid = gca.gcid WHERE gca.gcid = 13;
- SELECT * FROM astartes a INNER JOIN issuedArmaments  ia ON a.aid = ia.aid INNER JOIN armaments ar ON ia.eid = ar.eid;
+-- SELECT * FROM astartes a INNER JOIN issuedArmaments  ia ON a.aid = ia.aid INNER JOIN armaments ar ON ia.eid = ar.eid;
+-- SELECT * FROM armaments a INNER JOIN weapons w ON a.eid = w.wid;
+-- SELECT * FROM armaments a INNER JOIN armour ar ON a.eid = ar.arid;
