@@ -382,14 +382,15 @@ DROP TABLE IF EXISTS activeDreadnought;
 CREATE TABLE activeDreadnought (
 	did		INT UNIQUE NOT NULL REFERENCES dreadnought(did),
 	aid		INT UNIQUE NOT NULL REFERENCES astartes(aid),
+	internmentDate	TEXT NOT NULL,
 	primary key(did, aid)
 );
 
 -- Insert into Active Dreadnought --
-INSERT INTO activeDreadnought(did, aid)
-	VALUES(1, 14);
-INSERT INTO activeDreadnought(did, aid)
-	VALUES(3, 15);
+INSERT INTO activeDreadnought(did, aid, internmentDate)
+	VALUES(1, 14, '130 620.M33');
+INSERT INTO activeDreadnought(did, aid, internmentDate)
+	VALUES(3, 15, '839 269.M35');
 
 SELECT * FROM activeDreadnought;
 
@@ -1353,6 +1354,98 @@ INSERT INTO mods(mid, mEffect)
 
 SELECT * FROM mods;
 
+--------------------------------------------------------------------
+
+-- Create Views to Help Database Managers Eliminate Unecessary Data -- 
+
+-- Create Weapon Info View --
+Drop VIEW IF EXISTS weaponInfo;
+
+CREATE OR REPLACE VIEW weaponInfo AS
+SELECT a.eid, a.mrkdesignation, a.ename, w.wtype, w.ammo
+FROM armaments a INNER JOIN weapons w
+ON a.eid = w.wid;
+
+SELECT * FROM weaponInfo;
+
+-- Create Armour Info View --
+DROP VIEW IF EXISTS armourInfo;
+
+CREATE OR REPLACE VIEW armourInfo AS
+SELECT a.eid, a.mrkdesignation, a.ename, ar.atype, ar.plating
+FROM armaments a INNER JOIN armour ar
+ON a.eid = ar.arid;
+
+SELECT * FROM armourInfo;
+
+-- Create Vehicle Info View --
+DROP VIEW IF EXISTS vehicleInfo;
+
+CREATE OR REPLACE VIEW vehicleInfo AS
+SELECT a.eid, a.mrkdesignation, a.ename, v.vtype, v.terrain
+FROM armaments a INNER JOIN vehicle v
+ON a.eid = v.vid;
+
+SELECT * FROM vehicleInfo;
+
+-- Create Mod Info View --
+DROP VIEW IF EXISTS modInfo;
+
+CREATE OR REPLACE VIEW modInfo AS
+SELECT a.eid, a.mrkdesignation, a.ename, m.meffect
+FROM armaments a INNER JOIN mods m
+ON a.eid = m.mid;
+
+SELECT * FROM modInfo;
+
+-- Create Space Marine Info View --
+DROP VIEW IF EXISTS spacemarineInfo;
+
+CREATE OR REPLACE VIEW spacemarineInfo AS
+SELECT a.aid, a.fname, a.lname, vf.chaptername, vf.primarchname, 
+a.servicestart, gsb.gsid, gsh.dateofimplant, 
+gc.gcid, gc.companyname, s.specialization, vf.battlecolors
+FROM astartes a INNER JOIN geneseedHistory gsh
+ON a.aid = gsh.aid
+INNER JOIN geneseedBank gsb
+ON gsh.gsid = gsb.gsid
+INNER JOIN greatCompany gc
+ON gc.gcid = a.gcid
+INNER JOIN rank r
+ON a.rid = r.rid
+INNER JOIN specialization s
+ON a.sid = s.sid
+INNER JOIn vlkaFenryka vf
+ON gsb.pchid = vf.chid;
+
+SELECT * FROM spacemarineInfo;
+
+-- Create Dreadnought Info View --
+DROP VIEW IF EXISTS dreadnoughtInfo;
+
+CREATE OR REPLACE VIEW dreadnoughtInfo AS
+SELECT a.aid, a.fname, a.lname, d.dreadtype, a.servicestart, ad.internmentdate,
+gc.companyname
+FROM astartes a INNER JOIN activeDreadnought ad
+ON a.aid = ad.aid
+INNER JOIN dreadnought d
+ON ad.did = d.did
+INNER JOIN greatCompany gc
+ON gc.gcid = a.gcid;
+
+SELECT * FROM dreadnoughtInfo;
+
+-- Create Spacemarine Weapon View --
+DROP VIEW IF EXISTS spacemarineWeapons;
+
+CREATE OR REPLACE VIEW spacemarineWeapons AS
+SELECT a.aid, a.fname, a.lname, wi.mrkdesignation, wi.ename, wi.wtype, wi.ammo
+FROM astartes a INNER JOIN issuedArmaments ia
+ON a.aid = ia.aid
+INNER JOIN weaponInfo wi
+ON ia.eid = wi.eid;
+
+SELECT * FROM spacemarineWeapons;
 --------------------------------------------------------------------
 
 -- Test Quries --
