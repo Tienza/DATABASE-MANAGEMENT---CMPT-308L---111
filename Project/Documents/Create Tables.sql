@@ -1105,6 +1105,7 @@ CREATE TABLE issuedArmaments (
 
 -- Insert into Issued Armaments --
 SELECT * FROM armaments;
+SELECT * FROM astartes;
 INSERT INTO issuedArmaments(aid, gcid, eid)
 	VALUES(1, 1, 5);
 INSERT INTO issuedArmaments(aid, gcid, eid)
@@ -1113,6 +1114,116 @@ INSERT INTO issuedArmaments(aid, gcid, eid)
 	VALUES(1, 1, 30);
 INSERT INTO issuedArmaments(aid, gcid, eid)
 	VALUES(1, 1, 33);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(2, 2, 3);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(2, 2, 10);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(2, 2, 29);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(2, 2, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(3, 3, 2);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(3, 3, 17);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(3, 3, 29);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(4, 4, 1);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(4, 4, 4);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(4, 4, 16);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(4, 4, 28);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(4, 4, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(4, 4, 31);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(5, 5, 4);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(5, 5, 6);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(5, 5, 9);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(5, 5, 32);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(6, 6, 1);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(6, 6, 3);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(6, 6, 6);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(6, 6, 18);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(7, 7, 3);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(7, 7, 1);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(7, 7, 19);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(7, 7, 28);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(7, 7, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(7, 7, 31);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(8, 8, 5);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(8, 8, 6);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(8, 8, 19);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(8, 8, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(9, 9, 2);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(9, 9, 5);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(9, 9, 8);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(10, 10, 4);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(10, 10, 6);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(10, 10, 18);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(10, 10, 28);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(10, 10, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(10, 10, 32);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(11, 11, 1);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(11, 11, 6);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(11, 11, 14);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(11, 11, 28);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(11, 11, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(11, 11, 33);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(12, 12, 3);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(12, 12, 6);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(12, 12, 17);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(12, 12, 28);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(13, 13, 4);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(13, 13, 6);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(13, 13, 15);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(13, 13, 30);
+INSERT INTO issuedArmaments(aid, gcid, eid)
+	VALUES(13, 13, 33);
 
 SELECT * FROM issuedArmaments;
 
@@ -1123,4 +1234,4 @@ SELECT * FROM issuedArmaments;
 -- SELECT * FROM geneseedHistory gh INNER JOIN astartes a ON gh.aid = a.aid INNER JOIN geneseedBank gs ON gs.gsid = gh.gsid;
 -- SELECT * FROM activeDreadnought ad INNER JOIN dreadnought d ON ad.did = d.did INNER JOIN astartes a ON ad.aid = a.aid INNER JOIN geneseedHistory gsh ON gsh.aid = a.aid INNER JOIN geneseedBank gsb on gsb.gsid = gsh.gsid;
 -- SELECT * FROM gcArmaments gca INNER JOIN armaments a ON gca.eid = a.eid INNER JOIN greatCompany gc ON gc.gcid = gca.gcid WHERE gca.gcid = 13;
--- SELECT * FROM astartes a INNER JOIN issuedArmaments  ia ON a.aid = ia.aid INNER JOIN armaments ar ON ia.eid = ar.eid;
+ SELECT * FROM astartes a INNER JOIN issuedArmaments  ia ON a.aid = ia.aid INNER JOIN armaments ar ON ia.eid = ar.eid;
