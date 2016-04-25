@@ -342,7 +342,7 @@ INSERT INTO dreadnought(dreadType)
 INSERT INTO dreadnought(dreadType)
 	VALUES('Hellfire');
 INSERT INTO dreadnought(dreadType)
-	VALUES('Contemptor Pattern');
+	VALUES('Contemptor');
 INSERT INTO dreadnought(dreadType)
 	VALUES('Deredeo');
 INSERT INTO dreadnought(dreadType)
