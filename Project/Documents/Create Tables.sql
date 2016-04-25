@@ -455,7 +455,6 @@ INSERT INTO armaments(type, mrkDesignation, eName)
 INSERT INTO armaments(type, mrkDesignation, eName)
 	VALUES('Mod', 'III', 'Teleporter');
 
-
 SELECT * FROM armaments;
 
 --------------------------------------------------------------------
