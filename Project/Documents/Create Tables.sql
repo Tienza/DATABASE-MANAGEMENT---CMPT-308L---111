@@ -1571,6 +1571,24 @@ LANGUAGE plpgsql;
 SELECT getDNInfoByName('B%', 'F%', 'ref2');
 FETCH ALL FROM ref2;
 
+-- Stored Procedure To Check Great Company Issued Armaments by GCID --
+CREATE OR REPLACE FUNCTION getGCEquip(INT, REFCURSOR) RETURNS refcursor AS 
+$$
+DECLARE
+	wgcid	    	INT		:= $1;
+	resultset	REFCURSOR 	:= $2;
+BEGIN
+   OPEN resultset FOR 
+      SELECT	eid, mrkdesignation, ename
+        FROM   	greatCompanyIssued
+       WHERE  	gcid = wgcid;
+   return resultset;
+end;
+$$ 
+LANGUAGE plpgsql;
+
+SELECT getGCEquip(1, 'ref3');
+FETCH ALL FROM ref3;
 --------------------------------------------------------------------
 
 --------------------------------------------------------------------
