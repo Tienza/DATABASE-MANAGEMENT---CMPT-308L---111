@@ -1,24 +1,4 @@
-﻿-- Drops all tables in preparation for database creation. --
-/*DROP TABLE IF EXISTS vlkaFenryka;
-DROP TABLE IF EXISTS successorChapter;
-DROP TABLE IF EXISTS geneseedBank;
-DROP TABLE IF EXISTS geneseedHistory;
-DROP TABLE IF EXISTS dreadnought;
-DROP TABLE IF EXISTS activeDreadnought;
-DROP TABLE IF EXISTS greatCompany;
-DROP TABLE IF EXISTS astartes;
-DROP TABLE IF EXISTS rank;
-DROP TABLE IF EXISTS specialization;
-DROP TABLE IF EXISTS gcArmaments;
-DROP TABLE IF EXISTS issuedArmaments;
-DROP TABLE IF EXISTS armaments;
-DROP TABLE IF EXISTS activeMods;
-DROP TABLE IF EXISTS vehicle;
-DROP TABLE IF EXISTS weapons;
-DROP TABLE IF EXISTS armour;
-DROP TABLE IF EXISTS mods;*/
-
--- Create Main Vlka Fenryka Table --
+﻿-- Create Main Vlka Fenryka Table --
 DROP TABLE IF EXISTS vlkaFenryka;
 
 CREATE TABLE vlkaFenryka (
@@ -1483,6 +1463,47 @@ SELECT aid, fname, lname, ename FROM spacemarineMods;
 
 SELECT * FROM spacemarineEquipment;
 
+-- Create Great Company Issued Armour View --
+DROP VIEW IF EXISTS greatCompanyIssuedArmour;
+
+CREATE OR REPLACE VIEW greatCompanyIssuedArmour AS
+SELECT gca.gcid, gca.eid, ar.mrkdesignation, ar.ename, ar.atype, ar.plating
+FROM gcArmaments gca INNER JOIN armourInfo ar
+ON gca.eid = ar.eid;
+
+SELECT * FROM greatCompanyIssuedArmour;
+
+-- Create Great Company Issued Weapons View --
+DROP VIEW IF EXISTS greatCompanyIssuedWeapons;
+
+CREATE OR REPLACE VIEW greatCompanyIssuedWeapons AS
+SELECT gca.gcid, gca.eid, wi.mrkdesignation, wi.ename, wi.wtype, wi.ammo
+FROM gcArmaments gca INNER JOIN weaponInfo wi
+ON gca.eid = wi.eid;
+
+SELECT * FROM greatCompanyIssuedWeapons;
+
+-- Create Great Company Issued Mods View --
+DROP VIEW IF EXISTS greatCompanyIssuedMods;
+
+CREATE OR REPLACE VIEW greatCompanyIssuedMods AS
+SELECT gca.gcid, gca.eid, mi.mrkdesignation, mi.ename, mi.meffect
+FROM gcArmaments gca INNER JOIN modInfo mi
+ON gca.eid = mi.eid;
+
+SELECT * FROM greatCompanyIssuedMods;
+
+-- Create Union View For Great Company Assigned Equipment --
+DROP VIEW IF EXISTS greatCompanyIssued;
+
+CREATE OR REPLACE VIEW greatCompanyIssued AS
+SELECT gcid, eid, mrkdesignation, ename FROM greatCompanyIssuedArmour
+UNION
+SELECT gcid, eid, mrkdesignation, ename FROM greatCompanyIssuedWeapons
+UNION
+SELECT gcid, eid, mrkdesignation, ename FROM greatCompanyIssuedMods;
+
+SELECT * FROM greatCompanyIssued;
 --------------------------------------------------------------------
 
 -- Create Stored Procedures --
@@ -1509,7 +1530,7 @@ SELECT getSPEquipByFname('Lo%', 'Grim%', 'results');
 FETCH ALL FROM results;
 
 -- Stored Procedure To Get Spacemarine Info by Name --
-CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+CREATE OR REPLACE FUNCTION getSPInfoByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
 	spFname	    TEXT		:= $1;
@@ -1526,8 +1547,10 @@ end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPEquipByFname('Lo%', 'Grim%', 'results');
-FETCH ALL FROM results;
+SELECT getSPInfoByFname('Lo%', 'Grim%', 'ref');
+FETCH ALL FROM ref;
+
+--------------------------------------------------------------------
 
 --------------------------------------------------------------------
 
@@ -1543,3 +1566,4 @@ FETCH ALL FROM results;
 -- SELECT * FROM armaments a INNER JOIN mods m ON a.eid = m.mid;
 -- SELECT * FROM spacemarineInfo WHERE fname LIKE 'Lo%';
 -- SELECT ename FROM spacemarineEquipment WHERE aid=8;
+-- SELECT ename FROM greatCompanyIssued WHERE gcid=1;
