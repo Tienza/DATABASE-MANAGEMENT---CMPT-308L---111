@@ -1487,23 +1487,46 @@ SELECT * FROM spacemarineEquipment;
 
 -- Create Stored Procedures --
 
--- Stored Procedure To Get Spacemarine Equipment by name --
-CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, REFCURSOR) RETURNS refcursor AS 
+-- Stored Procedure To Get Spacemarine Equipment by Name --
+CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
-	spName	      	TEXT		:= $1;
-	resultset	REFCURSOR 	:= $2;
+	spFname	      	TEXT		:= $1;
+	spLname		TEXT		:= $2;
+	resultset	REFCURSOR 	:= $3;
 BEGIN
    OPEN resultset FOR 
       SELECT	ename
         FROM   	spacemarineEquipment
-       WHERE  	fname LIKE spName;
+       WHERE  	fname LIKE spFname
+         AND	lname LIKE spLname;
    return resultset;
 end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPEquipByFname('Lo%', 'results');
+SELECT getSPEquipByFname('Lo%', 'Grim%', 'results');
+FETCH ALL FROM results;
+
+-- Stored Procedure To Get Spacemarine Info by Name --
+CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+$$
+DECLARE
+	spFname	      	TEXT		:= $1;
+	spLname		TEXT		:= $2;
+	resultset	REFCURSOR 	:= $3;
+BEGIN
+   OPEN resultset FOR 
+      SELECT	*
+        FROM   	spacemarineInfo
+       WHERE  	fname LIKE spFname
+         AND	lname LIKE spLname;
+   return resultset;
+end;
+$$ 
+LANGUAGE plpgsql;
+
+SELECT getSPEquipByFname('Lo%', 'Grim%', 'results');
 FETCH ALL FROM results;
 
 --------------------------------------------------------------------
