@@ -1404,7 +1404,7 @@ DROP VIEW IF EXISTS spacemarineInfo;
 CREATE OR REPLACE VIEW spacemarineInfo AS
 SELECT a.aid, a.fname, a.lname, vf.chaptername, vf.primarchname, 
 a.servicestart, gsb.gsid, gsh.dateofimplant, 
-gc.gcid, gc.companyname, s.specialization, vf.battlecolors
+gc.companyname, s.specialization, vf.battlecolors
 FROM astartes a INNER JOIN geneseedHistory gsh
 ON a.aid = gsh.aid
 INNER JOIN geneseedBank gsb
@@ -1482,6 +1482,30 @@ UNION
 SELECT aid, fname, lname, ename FROM spacemarineMods;
 
 SELECT * FROM spacemarineEquipment;
+
+--------------------------------------------------------------------
+
+-- Create Stored Procedures --
+
+-- Stored Procedure To Get Spacemarine Equipment by name --
+CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, REFCURSOR) RETURNS refcursor AS 
+$$
+DECLARE
+	spName	      	TEXT		:= $1;
+	resultset	REFCURSOR 	:= $2;
+BEGIN
+   OPEN resultset FOR 
+      SELECT	ename
+        FROM   	spacemarineEquipment
+       WHERE  	fname LIKE spName;
+   return resultset;
+end;
+$$ 
+LANGUAGE plpgsql;
+
+SELECT getSPEquipByFname('Lo%', 'results');
+FETCH ALL FROM results;
+
 --------------------------------------------------------------------
 
 -- Test Quries --
@@ -1494,3 +1518,5 @@ SELECT * FROM spacemarineEquipment;
 -- SELECT * FROM armaments a INNER JOIN armour ar ON a.eid = ar.arid;
 -- SELECT * FROM armaments a INNER JOIN vehicle v ON a.eid = v.vid;
 -- SELECT * FROM armaments a INNER JOIN mods m ON a.eid = m.mid;
+-- SELECT * FROM spacemarineInfo WHERE fname LIKE 'Lo%';
+-- SELECT ename FROM spacemarineEquipment WHERE aid=8;
