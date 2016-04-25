@@ -1491,7 +1491,7 @@ SELECT * FROM spacemarineEquipment;
 CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
-	spFname	      	TEXT		:= $1;
+	spFname	    TEXT		:= $1;
 	spLname		TEXT		:= $2;
 	resultset	REFCURSOR 	:= $3;
 BEGIN
@@ -1512,7 +1512,7 @@ FETCH ALL FROM results;
 CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
-	spFname	      	TEXT		:= $1;
+	spFname	    TEXT		:= $1;
 	spLname		TEXT		:= $2;
 	resultset	REFCURSOR 	:= $3;
 BEGIN
