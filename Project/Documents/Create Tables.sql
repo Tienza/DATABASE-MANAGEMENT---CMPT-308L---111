@@ -1509,10 +1509,10 @@ SELECT * FROM greatCompanyIssued;
 -- Create Stored Procedures --
 
 -- Stored Procedure To Get Spacemarine Equipment by Name --
-CREATE OR REPLACE FUNCTION getSPEquipByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+CREATE OR REPLACE FUNCTION getSPEquipByName(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
-	spFname	    TEXT		:= $1;
+	spFname	    	TEXT		:= $1;
 	spLname		TEXT		:= $2;
 	resultset	REFCURSOR 	:= $3;
 BEGIN
@@ -1526,14 +1526,14 @@ end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPEquipByFname('Lo%', 'Grim%', 'results');
+SELECT getSPEquipByName('Lo%', 'Grim%', 'results');
 FETCH ALL FROM results;
 
 -- Stored Procedure To Get Spacemarine Info by Name --
-CREATE OR REPLACE FUNCTION getSPInfoByFname(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+CREATE OR REPLACE FUNCTION getSPInfoByName(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
-	spFname	    TEXT		:= $1;
+	spFname	    	TEXT		:= $1;
 	spLname		TEXT		:= $2;
 	resultset	REFCURSOR 	:= $3;
 BEGIN
@@ -1547,8 +1547,29 @@ end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPInfoByFname('Lo%', 'Grim%', 'ref');
+SELECT getSPInfoByName('Lo%', '%', 'ref');
 FETCH ALL FROM ref;
+
+-- Stored Procedure To Get Dreadnought Info by Name --
+CREATE OR REPLACE FUNCTION getDNInfoByName(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+$$
+DECLARE
+	dnFname	    	TEXT		:= $1;
+	dnLname		TEXT		:= $2;
+	resultset	REFCURSOR 	:= $3;
+BEGIN
+   OPEN resultset FOR 
+      SELECT	*
+        FROM   	dreadnoughtInfo
+       WHERE  	fname LIKE dnFname
+         AND	lname LIKE dnLname;
+   return resultset;
+end;
+$$ 
+LANGUAGE plpgsql;
+
+SELECT getDNInfoByName('B%', 'F%', 'ref2');
+FETCH ALL FROM ref2;
 
 --------------------------------------------------------------------
 
