@@ -1342,9 +1342,14 @@ SELECT * FROM mods;
 Drop VIEW IF EXISTS weaponInfo;
 
 CREATE OR REPLACE VIEW weaponInfo AS
-SELECT a.eid, a.mrkdesignation, a.ename, w.wtype, w.ammo
-FROM armaments a INNER JOIN weapons w
-ON a.eid = w.wid;
+SELECT 	a.eid, 
+	a.mrkdesignation, 
+	a.ename, 
+	w.wtype, 
+	w.ammo
+FROM armaments a 
+INNER JOIN weapons w
+	ON a.eid = w.wid;
 
 SELECT * FROM weaponInfo;
 
@@ -1352,9 +1357,14 @@ SELECT * FROM weaponInfo;
 DROP VIEW IF EXISTS armourInfo;
 
 CREATE OR REPLACE VIEW armourInfo AS
-SELECT a.eid, a.mrkdesignation, a.ename, ar.atype, ar.plating
-FROM armaments a INNER JOIN armour ar
-ON a.eid = ar.arid;
+SELECT 	a.eid, 
+	a.mrkdesignation, 
+	a.ename, 
+	ar.atype, 
+	ar.plating
+FROM armaments a 
+INNER JOIN armour ar
+	ON a.eid = ar.arid;
 
 SELECT * FROM armourInfo;
 
@@ -1362,9 +1372,14 @@ SELECT * FROM armourInfo;
 DROP VIEW IF EXISTS vehicleInfo;
 
 CREATE OR REPLACE VIEW vehicleInfo AS
-SELECT a.eid, a.mrkdesignation, a.ename, v.vtype, v.terrain
-FROM armaments a INNER JOIN vehicle v
-ON a.eid = v.vid;
+SELECT 	a.eid, 
+	a.mrkdesignation, 
+	a.ename, 
+	v.vtype, 
+	v.terrain
+FROM armaments a 
+INNER JOIN vehicle v
+	ON a.eid = v.vid;
 
 SELECT * FROM vehicleInfo;
 
@@ -1372,9 +1387,13 @@ SELECT * FROM vehicleInfo;
 DROP VIEW IF EXISTS modInfo;
 
 CREATE OR REPLACE VIEW modInfo AS
-SELECT a.eid, a.mrkdesignation, a.ename, m.meffect
-FROM armaments a INNER JOIN mods m
-ON a.eid = m.mid;
+SELECT 	a.eid, 
+	a.mrkdesignation, 
+	a.ename, 
+	m.meffect
+FROM armaments a 
+INNER JOIN mods m
+	ON a.eid = m.mid;
 
 SELECT * FROM modInfo;
 
@@ -1382,21 +1401,30 @@ SELECT * FROM modInfo;
 DROP VIEW IF EXISTS spacemarineInfo;
 
 CREATE OR REPLACE VIEW spacemarineInfo AS
-SELECT a.aid, a.fname, a.lname, vf.chaptername, vf.primarchname, 
-a.servicestart, gsb.gsid, gsh.dateofimplant, 
-gc.companyname, s.specialization, vf.battlecolors
-FROM astartes a INNER JOIN geneseedHistory gsh
-ON a.aid = gsh.aid
+SELECT 	a.aid, 
+	a.fname, 
+	a.lname, 
+	vf.chaptername, 
+	vf.primarchname, 
+	a.servicestart, 
+	gsb.gsid, 
+	gsh.dateofimplant, 
+	gc.companyname, 
+	s.specialization, 
+	vf.battlecolors
+FROM astartes a 
+INNER JOIN geneseedHistory gsh
+	ON a.aid = gsh.aid
 INNER JOIN geneseedBank gsb
-ON gsh.gsid = gsb.gsid
+	ON gsh.gsid = gsb.gsid
 INNER JOIN greatCompany gc
-ON gc.gcid = a.gcid
+	ON gc.gcid = a.gcid
 INNER JOIN rank r
-ON a.rid = r.rid
+	ON a.rid = r.rid
 INNER JOIN specialization s
-ON a.sid = s.sid
+	ON a.sid = s.sid
 INNER JOIn vlkaFenryka vf
-ON gsb.pchid = vf.chid;
+	ON gsb.pchid = vf.chid;
 
 SELECT * FROM spacemarineInfo;
 
@@ -1404,14 +1432,20 @@ SELECT * FROM spacemarineInfo;
 DROP VIEW IF EXISTS dreadnoughtInfo;
 
 CREATE OR REPLACE VIEW dreadnoughtInfo AS
-SELECT a.aid, a.fname, a.lname, d.dreadtype, a.servicestart, ad.internmentdate,
-gc.companyname
-FROM astartes a INNER JOIN activeDreadnought ad
-ON a.aid = ad.aid
+SELECT 	a.aid, 
+	a.fname, 
+	a.lname, 
+	d.dreadtype, 
+	a.servicestart, 
+	ad.internmentdate,
+	gc.companyname
+FROM astartes a 
+INNER JOIN activeDreadnought ad
+	ON a.aid = ad.aid
 INNER JOIN dreadnought d
-ON ad.did = d.did
+	ON ad.did = d.did
 INNER JOIN greatCompany gc
-ON gc.gcid = a.gcid;
+	ON gc.gcid = a.gcid;
 
 SELECT * FROM dreadnoughtInfo;
 
@@ -1419,11 +1453,19 @@ SELECT * FROM dreadnoughtInfo;
 DROP VIEW IF EXISTS spacemarineWeapons;
 
 CREATE OR REPLACE VIEW spacemarineWeapons AS
-SELECT a.aid, a.fname, a.lname, wi.mrkdesignation, wi.ename, wi.wtype, wi.ammo
-FROM astartes a INNER JOIN issuedArmaments ia
-ON a.aid = ia.aid
+SELECT 	a.aid, 
+	a.fname, 
+	a.lname,  
+	wi.eid,
+	wi.mrkdesignation,
+	wi.ename, 
+	wi.wtype, 
+	wi.ammo
+FROM astartes a 
+INNER JOIN issuedArmaments ia
+	ON a.aid = ia.aid
 INNER JOIN weaponInfo wi
-ON ia.eid = wi.eid;
+	ON ia.eid = wi.eid;
 
 SELECT * FROM spacemarineWeapons;
 
@@ -1431,11 +1473,19 @@ SELECT * FROM spacemarineWeapons;
 DROP VIEW IF EXISTS spacemarineArmour;
 
 CREATE OR REPLACE VIEW spacemarineArmour AS
-SELECT a.aid, a.fname, a.lname, ar.mrkdesignation, ar.ename, ar.atype, ar.plating
-FROM astartes a INNER JOIN issuedArmaments ia
-ON a.aid = ia.aid
+SELECT 	a.aid, 
+	a.fname, 
+	a.lname, 
+	ar.eid,
+	ar.mrkdesignation, 
+	ar.ename, 
+	ar.atype, 
+	ar.plating
+FROM astartes a 
+INNER JOIN issuedArmaments ia
+	ON a.aid = ia.aid
 INNER JOIN armourInfo ar
-ON ia.eid = ar.eid;
+	ON ia.eid = ar.eid;
 
 SELECT * FROM spacemarineArmour;
 
@@ -1443,11 +1493,18 @@ SELECT * FROM spacemarineArmour;
 Drop VIEW IF EXISTS spacemarineMods; 
 
 CREATE OR REPLACE VIEW spacemarineMods AS
-SELECT a.aid, a.fname, a.lname, mi.mrkdesignation, mi.ename, mi.meffect
-FROM astartes a INNER JOIN issuedArmaments ia
-ON a.aid = ia.aid
+SELECT 	a.aid, 
+	a.fname, 
+	a.lname, 
+	mi.eid,
+	mi.mrkdesignation, 
+	mi.ename, 
+	mi.meffect
+FROM astartes a 
+INNER JOIN issuedArmaments ia
+	ON a.aid = ia.aid
 INNER JOIN modInfo mi
-ON ia.eid = mi.eid;
+	ON ia.eid = mi.eid;
 
 SELECT * FROM spacemarineMods;
 
@@ -1455,11 +1512,29 @@ SELECT * FROM spacemarineMods;
 DROP VIEW IF EXISTS spacemarineEquipment;
 
 CREATE OR REPLACE VIEW spacemarineEquipment AS
-SELECT aid, fname, lname, ename FROM spacemarineWeapons 
+SELECT 	aid, 
+	fname, 
+	lname, 
+	eid,
+	mrkdesignation,
+	ename 
+FROM spacemarineWeapons 
 UNION
-SELECT aid, fname, lname, ename FROM spacemarineArmour
+SELECT 	aid, 
+	fname, 
+	lname, 
+	eid, 
+	mrkdesignation,
+	ename 
+FROM spacemarineArmour
 UNION
-SELECT aid, fname, lname, ename FROM spacemarineMods;
+SELECT 	aid, 
+	fname, 
+	lname, 
+	eid, 
+	mrkdesignation,
+	ename 
+FROM spacemarineMods;
 
 SELECT * FROM spacemarineEquipment;
 
@@ -1467,9 +1542,15 @@ SELECT * FROM spacemarineEquipment;
 DROP VIEW IF EXISTS greatCompanyIssuedArmour;
 
 CREATE OR REPLACE VIEW greatCompanyIssuedArmour AS
-SELECT gca.gcid, gca.eid, ar.mrkdesignation, ar.ename, ar.atype, ar.plating
-FROM gcArmaments gca INNER JOIN armourInfo ar
-ON gca.eid = ar.eid;
+SELECT 	gca.gcid, 
+	gca.eid, 
+	ar.mrkdesignation, 
+	ar.ename, 
+	ar.atype, 
+	ar.plating
+FROM gcArmaments gca 
+INNER JOIN armourInfo ar
+	ON gca.eid = ar.eid;
 
 SELECT * FROM greatCompanyIssuedArmour;
 
@@ -1477,9 +1558,15 @@ SELECT * FROM greatCompanyIssuedArmour;
 DROP VIEW IF EXISTS greatCompanyIssuedWeapons;
 
 CREATE OR REPLACE VIEW greatCompanyIssuedWeapons AS
-SELECT gca.gcid, gca.eid, wi.mrkdesignation, wi.ename, wi.wtype, wi.ammo
-FROM gcArmaments gca INNER JOIN weaponInfo wi
-ON gca.eid = wi.eid;
+SELECT 	gca.gcid, 
+	gca.eid, 
+	wi.mrkdesignation, 
+	wi.ename, 
+	wi.wtype, 
+	wi.ammo
+FROM gcArmaments gca 
+INNER JOIN weaponInfo wi
+	ON gca.eid = wi.eid;
 
 SELECT * FROM greatCompanyIssuedWeapons;
 
@@ -1487,9 +1574,14 @@ SELECT * FROM greatCompanyIssuedWeapons;
 DROP VIEW IF EXISTS greatCompanyIssuedMods;
 
 CREATE OR REPLACE VIEW greatCompanyIssuedMods AS
-SELECT gca.gcid, gca.eid, mi.mrkdesignation, mi.ename, mi.meffect
-FROM gcArmaments gca INNER JOIN modInfo mi
-ON gca.eid = mi.eid;
+SELECT 	gca.gcid, 
+	gca.eid, 
+	mi.mrkdesignation, 
+	mi.ename, 
+	mi.meffect
+FROM gcArmaments gca 
+INNER JOIN modInfo mi
+	ON gca.eid = mi.eid;
 
 SELECT * FROM greatCompanyIssuedMods;
 
@@ -1497,11 +1589,23 @@ SELECT * FROM greatCompanyIssuedMods;
 DROP VIEW IF EXISTS greatCompanyIssued;
 
 CREATE OR REPLACE VIEW greatCompanyIssued AS
-SELECT gcid, eid, mrkdesignation, ename FROM greatCompanyIssuedArmour
+SELECT 	gcid, 
+	eid, 
+	mrkdesignation, 
+	ename 
+FROM greatCompanyIssuedArmour
 UNION
-SELECT gcid, eid, mrkdesignation, ename FROM greatCompanyIssuedWeapons
+SELECT 	gcid, 
+	eid, 
+	mrkdesignation, 
+	ename 
+FROM greatCompanyIssuedWeapons
 UNION
-SELECT gcid, eid, mrkdesignation, ename FROM greatCompanyIssuedMods;
+SELECT 	gcid, 
+	eid, 
+	mrkdesignation, 
+	ename 
+FROM greatCompanyIssuedMods;
 
 SELECT * FROM greatCompanyIssued;
 --------------------------------------------------------------------
@@ -1517,7 +1621,9 @@ DECLARE
 	resultset	REFCURSOR 	:= $3;
 BEGIN
    OPEN resultset FOR 
-      SELECT	ename
+      SELECT	eid,
+		mrkdesignation,
+		ename
         FROM   	spacemarineEquipment
        WHERE  	fname LIKE spFname
          AND	lname LIKE spLname;
@@ -1526,7 +1632,7 @@ end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPEquipByName('Lo%', 'Grim%', 'results');
+SELECT getSPEquipByName('En%', 'K%', 'results');
 FETCH ALL FROM results;
 
 -- Stored Procedure To Get Spacemarine Info by Name --
@@ -1547,7 +1653,7 @@ end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPInfoByName('Lo%', '%', 'ref');
+SELECT getSPInfoByName('%', 'Death%', 'ref');
 FETCH ALL FROM ref;
 
 -- Stored Procedure To Get Dreadnought Info by Name --
@@ -1589,6 +1695,49 @@ LANGUAGE plpgsql;
 
 SELECT getGCEquip(1, 'ref3');
 FETCH ALL FROM ref3;
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+-- Create Roles for Security Purposes --
+
+-- Create Adeptus Administratum --
+DROP ROLE IF EXISTS adeptus_administratum;
+
+CREATE ROLE adeptus_administratum;
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON ALL TABLES IN SCHEMA PUBLIC
+TO adeptus_administratum;
+
+-- Create Chapter Master Role --
+DROP ROLE IF EXISTS chapter_master;
+
+CREATE ROLE chapter_master;
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON ALL TABLES IN SCHEMA PUBLIC
+TO chapter_master;
+
+-- Create Chapter Scribe Role --
+DROP ROLE IF EXISTS chapter_scribe;
+
+CREATE ROLE chapter_scribe;
+GRANT SELECT, INSERT, UPDATE
+ON ALL TABLES IN SCHEMA PUBLIC
+TO chapter_scribe;
+
+-- Create Spacemarine Role --
+DROP ROLE IF EXISTS space_marine;
+
+CREATE ROLE space_marine;
+GRANT SELECT
+ON greatCompanyIssued
+TO space_marine;
+GRANT SELECT
+ON spacemarineEquipment
+TO space_marine;
+GRANT SELECT
+ON spacemarineInfo
+TO space_marine;
 --------------------------------------------------------------------
 
 --------------------------------------------------------------------
