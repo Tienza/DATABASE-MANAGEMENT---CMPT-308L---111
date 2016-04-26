@@ -1409,6 +1409,7 @@ SELECT 	a.aid,
 	gsb.gsid, 
 	gsh.dateofimplant, 
 	gc.companyname, 
+	r.rankName,
 	s.specialization, 
 	vf.battlecolors
 FROM astartes a 
@@ -1612,7 +1613,7 @@ SELECT * FROM greatCompanyIssued;
 -- Create Stored Procedures --
 
 -- Stored Procedure To Get Spacemarine Equipment by Name --
-CREATE OR REPLACE FUNCTION getSPEquipByName(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+CREATE OR REPLACE FUNCTION getSPEquipByName(TEXT, TEXT, REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
 	spFname	    	TEXT		:= $1;
@@ -1631,11 +1632,11 @@ end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPEquipByName('En%', 'K%', 'results');
+SELECT getSPEquipByName('B%', 'Storm%', 'results');
 FETCH ALL FROM results;
 
 -- Stored Procedure To Get Spacemarine Info by Name --
-CREATE OR REPLACE FUNCTION getSPInfoByName(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+CREATE OR REPLACE FUNCTION getSPInfoByName(TEXT, TEXT, REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
 	spFname	    	TEXT		:= $1;
@@ -1652,11 +1653,11 @@ end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getSPInfoByName('%', 'Death%', 'ref');
+SELECT getSPInfoByName('%', '%', 'ref');
 FETCH ALL FROM ref;
 
 -- Stored Procedure To Get Dreadnought Info by Name --
-CREATE OR REPLACE FUNCTION getDNInfoByName(TEXT, TEXT,REFCURSOR) RETURNS refcursor AS 
+CREATE OR REPLACE FUNCTION getDNInfoByName(TEXT, TEXT, REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
 	dnFname	    	TEXT		:= $1;
@@ -1676,25 +1677,45 @@ LANGUAGE plpgsql;
 SELECT getDNInfoByName('B%', 'F%', 'ref2');
 FETCH ALL FROM ref2;
 
--- Stored Procedure To Check Great Company Issued Armaments by GCID --
-CREATE OR REPLACE FUNCTION getGCEquip(INT, REFCURSOR) RETURNS refcursor AS 
+-- Stored Procedure to get Number of Astartes in Great Company by ID --
+CREATE OR REPLACE FUNCTION getGCNumById(INT, REFCURSOR) RETURNS refcursor AS 
 $$
 DECLARE
 	wgcid	    	INT		:= $1;
 	resultset	REFCURSOR 	:= $2;
 BEGIN
    OPEN resultset FOR 
-      SELECT	eid, mrkdesignation, ename
-        FROM   	greatCompanyIssued
+      SELECT	COUNT(aid)
+        FROM   	astartes
        WHERE  	gcid = wgcid;
    return resultset;
 end;
 $$ 
 LANGUAGE plpgsql;
 
-SELECT getGCEquip(1, 'ref3');
+SELECT getGCNumById(1, 'ref3');
 FETCH ALL FROM ref3;
+
+-- Stored Procedure To Check Great Company Issued Armaments by GCID --
+CREATE OR REPLACE FUNCTION getGCEquip() RETURNS TRIGGER AS 
+$getGCEquip$
+DECLARE
+	wgcid	    	INT		:= (SELECT eid FROM greatCompanyIssued WHERE gcid = wgcid);
+
+BEGIN
+	IF(weid in (SELECT eid FROM greatCompanyIssued WHERE gcid = wgcid))
+		THEN UPDATE issuedArmaments SET invalid = 1;
+		END IF;
+end;
+$getGCEquip$ 
+LANGUAGE plpgsql;
 --------------------------------------------------------------------
+
+-- Create Trigger to Check If Equipment was Assigned to GC before add --
+CREATE TRIGGER getGCEquip
+	BEFORE INSERT or UPDATE ON issuedArmaments
+	FOR EACH ROW
+	EXECUTE PROCEDURE getGCEquip();
 
 --------------------------------------------------------------------
 
@@ -1754,3 +1775,4 @@ TO space_marine;
 -- SELECT * FROM spacemarineInfo WHERE fname LIKE 'Lo%';
 -- SELECT ename FROM spacemarineEquipment WHERE aid=8;
 -- SELECT ename FROM greatCompanyIssued WHERE gcid=1;
+-- SELECT COUNT(aid) FROM astartes WHERE gcid = 1;
