@@ -1,0 +1,275 @@
+2016-04-04 00:29:14 ERROR  : ERROR:  syntax error at or near "NOT"
+LINE 11:  pid  NOT NULL PRIMARY KEY,
+               ^
+2016-04-04 00:29:30 ERROR  : ERROR:  syntax error at or near "PRIMARY"
+LINE 11:  pid  PRIMARY KEY,
+               ^
+2016-04-04 00:31:10 ERROR  : ERROR:  type "datetime" does not exist
+LINE 14:  birthday datetime NOT NULL,
+                   ^
+2016-04-04 00:41:44 ERROR  : ERROR:  cannot drop table people because other objects depend on it
+DETAIL:  constraint singleactors_pid_fkey on table singleactors depends on table people
+HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2016-04-04 00:42:01 ERROR  : ERROR:  relation "people" already exists
+2016-04-22 08:53:30 ERROR  : ERROR:  syntax error at or near "DROP"
+LINE 2: DROP TABLE IF EXISTS successorChapter
+        ^
+2016-04-22 09:07:10 ERROR  : ERROR:  syntax error at or near "TABLES"
+LINE 26: CREATE TABLES vlkaFenryka (
+                ^
+2016-04-22 09:07:34 ERROR  : ERROR:  relation "vlkafenryka" already exists
+2016-04-22 09:23:31 ERROR  : ERROR:  column "Wolf Brothers" does not exist
+LINE 12:  VALUES(1, "Wolf Brothers", 2);
+                    ^
+2016-04-22 09:34:40 ERROR  : ERROR:  column "progenitorlname" of relation "geneseedbank" does not exist
+LINE 10: INSERT INTO geneseedBank(pchid, progenitorFname, progenitorL...
+                                                          ^
+2016-04-22 09:35:20 ERROR  : ERROR:  cannot drop table vlkafenryka because other objects depend on it
+DETAIL:  constraint successorchapter_pchid_fkey on table successorchapter depends on table vlkafenryka
+HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2016-04-22 10:01:16 ERROR  : ERROR:  syntax error at or near "INT"
+LINE 10: INSERT INT rank(rankName)
+                ^
+2016-04-22 10:01:54 ERROR  : ERROR:  syntax error at or near "INT"
+LINE 14: INSERT INT rank(rankName)
+                ^
+2016-04-22 10:02:13 ERROR  : ERROR:  column "Great Wolf" does not exist
+LINE 11:  VALUES("Great Wolf");
+                 ^
+2016-04-22 10:13:05 ERROR  : ERROR:  type "texr" does not exist
+LINE 6:  specialization TEXR NOT NULL,
+                        ^
+2016-04-22 11:06:10 ERROR  : ERROR:  INSERT has more expressions than target columns
+LINE 16:  VALUES(1, 1, 2, 1, 'Logan', 'Grimnar', '766 781.M35');
+                                                 ^
+2016-04-22 11:06:32 ERROR  : ERROR:  relation "astartes" does not exist
+LINE 1: SELECT * FROM astartes
+                      ^
+2016-04-22 11:06:52 ERROR  : ERROR:  INSERT has more expressions than target columns
+LINE 2:  VALUES(1, 1, 2, 1, 'Logan', 'Grimnar', '766 781.M35');
+                                                ^
+2016-04-22 11:08:04 ERROR  : ERROR:  INSERT has more expressions than target columns
+LINE 2:  VALUES(1, 1, 2, 1, 'Logan', 'Grimnar', '766 781.M35');
+                                                ^
+2016-04-22 11:08:18 ERROR  : ERROR:  INSERT has more expressions than target columns
+LINE 2:  VALUES(1, 1, 2, 1, 'Logan', 'Grimnar', '766781.M35');
+                                                ^
+2016-04-22 11:52:44 ERROR  : ERROR:  syntax error at or near "SELECT"
+LINE 282:  SELECT * FROM greatCompany g INNER JOIN astartes a ON a.gci...
+           ^
+2016-04-22 11:52:58 ERROR  : ERROR:  cannot drop table vlkafenryka because other objects depend on it
+DETAIL:  constraint successorchapter_pchid_fkey on table successorchapter depends on table vlkafenryka
+constraint geneseedbank_pchid_fkey on table geneseedbank depends on table vlkafenryka
+HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2016-04-22 11:55:31 ERROR  : ERROR:  INSERT has more expressions than target columns
+LINE 207:  VALUES(1, 'Sons of Morkai', 'Erik Morkai', 'Morkai');
+                                                      ^
+2016-04-22 11:56:34 ERROR  : ERROR:  column v.cid does not exist
+LINE 2: ...ON a.sid = s.sid INNER JOIN vlkaFenryka v ON g.pchid = v.cid
+                                                                  ^
+HINT:  Perhaps you meant to reference the column "v.chid".
+2016-04-22 15:42:30 ERROR  : ERROR:  relation "geneseedhistory" already exists
+2016-04-22 15:42:36 ERROR  : ERROR:  there is no unique constraint matching given keys for referenced table "astartes"
+2016-04-22 15:42:53 ERROR  : ERROR:  there is no unique constraint matching given keys for referenced table "astartes"
+2016-04-22 15:43:44 ERROR  : ERROR:  there is no unique constraint matching given keys for referenced table "astartes"
+2016-04-22 16:14:53 ERROR  : ERROR:  syntax error at or near "JOINE"
+LINE 2: ... gh INNER JOIN astartes a ON gh.aid = a.aid INNER JOINE gene...
+                                                             ^
+2016-04-22 16:15:01 ERROR  : ERROR:  syntax error at or near "="
+LINE 1:  = s.sid INNER JOIN vlkaFenryka v ON g.pchid = v.chid;
+         ^
+2016-04-22 16:15:06 ERROR  : ERROR:  syntax error at or near "ation"
+LINE 1: ation s ON a.sid = s.sid INNER JOIN vlkaFenryka v ON g.pchid...
+        ^
+2016-04-22 16:15:10 ERROR  : ERROR:  column gh.gid does not exist
+LINE 2: ....aid = a.aid INNER JOIN geneseedBank gs ON gs.gsid = gh.gid;
+                                                                ^
+HINT:  Perhaps you meant to reference the column "gh.gsid" or the column "gh.aid".
+2016-04-22 16:56:18 ERROR  : ERROR:  syntax error at or near "ELECT"
+LINE 1: ELECT * FROM dreadnought;
+        ^
+2016-04-22 16:57:00 ERROR  : ERROR:  syntax error at or near "TABLE"
+LINE 344: DROP TABLE IF EXISTS dreadnought;
+               ^
+2016-04-22 16:57:43 ERROR  : ERROR:  relation "activedreadnought" does not exist
+LINE 1: INSERT INTO activeDreadnought(did, aid)
+                    ^
+2016-04-22 16:57:56 ERROR  : ERROR:  relation "activedreadnought" does not exist
+LINE 1: INSERT INTO activeDreadnought(did, aid)
+                    ^
+2016-04-22 16:58:00 ERROR  : ERROR:  relation "activedreadnought" does not exist
+LINE 2: SELECT * FROM activeDreadnought;
+                      ^
+2016-04-22 16:59:17 ERROR  : ERROR:  syntax error at or near "'966 203.M33'"
+LINE 5:  VALUES(14, 15 '966 203.M33');
+                       ^
+2016-04-22 16:59:26 ERROR  : ERROR:  syntax error at or near "'966 203.M33'"
+LINE 4:  VALUES(14, 15 '966 203.M33');
+                       ^
+2016-04-22 16:59:48 ERROR  : ERROR:  syntax error at or near "'966 203.M33'"
+LINE 38:  VALUES(14, 15 '966 203.M33');
+                        ^
+2016-04-22 17:13:33 ERROR  : ERROR:  syntax error at or near "CREATE"
+LINE 3: CREATE TABLE armaments (
+        ^
+2016-04-22 17:16:12 ERROR  : ERROR:  relation "armaments" already exists
+2016-04-22 17:16:50 ERROR  : ERROR:  value too long for type character(1)
+2016-04-22 17:17:06 ERROR  : ERROR:  syntax error at or near "CREATE"
+LINE 3: CREATE TABLE armaments (
+        ^
+2016-04-23 12:36:16 ERROR  : ERROR:  cannot drop table vlkafenryka because other objects depend on it
+DETAIL:  constraint successorchapter_pchid_fkey on table successorchapter depends on table vlkafenryka
+constraint geneseedbank_pchid_fkey on table geneseedbank depends on table vlkafenryka
+constraint greatcompany_pchid_fkey on table greatcompany depends on table vlkafenryka
+HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2016-04-23 12:56:44 ERROR  : ERROR:  syntax error at or near "N"
+LINE 1: N astartes a ON ad.aid = a.aid INNER JOIN geneseedHistory gs...
+        ^
+2016-04-23 12:58:19 ERROR  : ERROR:  syntax error at or near "eedHistory"
+LINE 1: eedHistory gsh ON gsh.aid = a.aid INNER JOIN geneseedBank gs...
+        ^
+2016-04-23 12:58:28 ERROR  : ERROR:  column reference "gcid" is ambiguous
+LINE 1: ...R JOIN greatCompany gc ON gc.gcid = gca.gcid WHERE gcid = 3;
+                                                              ^
+2016-04-23 12:58:43 ERROR  : ERROR:  syntax error at or near "geneseedHistory"
+LINE 1:  geneseedHistory gsh ON gsh.aid = a.aid INNER JOIN geneseedB...
+         ^
+2016-04-23 13:38:36 ERROR  : ERROR:  syntax error at or near "eid"
+LINE 6:  eid  INT NOT NULL REFERENCES gcArmaments(eid),
+         ^
+2016-04-23 13:39:02 ERROR  : ERROR:  there is no unique constraint matching given keys for referenced table "gcarmaments"
+2016-04-23 13:41:03 ERROR  : ERROR:  syntax error at or near "UNIQUE"
+LINE 4:  primary key UNIQUE (gcid, eid)
+                     ^
+2016-04-23 13:44:22 ERROR  : ERROR:  syntax error at or near "primary"
+LINE 8:  primary key(aid, gcid,eid)
+         ^
+2016-04-23 13:47:23 ERROR  : ERROR:  insert or update on table "issuedarmaments" violates foreign key constraint "issuedarmaments_gcid_fkey"
+DETAIL:  Key (gcid, eid)=(1, 34) is not present in table "gcarmaments".
+2016-04-23 13:51:29 ERROR  : ERROR:  duplicate key value violates unique constraint "issuedarmaments_pkey"
+DETAIL:  Key (aid, gcid, eid)=(1, 1, 19) already exists.
+2016-04-23 13:53:25 ERROR  : ERROR:  table name "a" specified more than once
+2016-04-25 21:27:50 ERROR  : ERROR:  relation "spacemarineequipment" does not exist
+LINE 2: SELECT * FROM spacemarineEquipment;
+                      ^
+2016-04-25 21:28:08 ERROR  : ERROR:  role "chapter_scribe" already exists
+2016-04-25 22:32:19 ERROR  : ERROR:  cannot drop table vlkafenryka because other objects depend on it
+DETAIL:  constraint successorchapter_pchid_fkey on table successorchapter depends on table vlkafenryka
+constraint geneseedbank_pchid_fkey on table geneseedbank depends on table vlkafenryka
+constraint greatcompany_pchid_fkey on table greatcompany depends on table vlkafenryka
+view spacemarineinfo depends on table vlkafenryka
+HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2016-04-26 00:09:52 ERROR  : ERROR:  syntax error at end of input
+LINE 7:   THEN UPDATE issuedArmaments;
+                                     ^
+2016-04-26 00:11:08 ERROR  : ERROR:  type "invalid" does not exist
+LINE 5:  SET invalid = 0;
+             ^
+2016-04-26 00:11:39 ERROR  : ERROR:  type "invalid" does not exist
+LINE 6:  SET invalid = 0;
+             ^
+2016-04-26 00:12:13 ERROR  : ERROR:  type "invalid" does not exist
+LINE 7:  SET invalid = 0;
+             ^
+2016-04-26 00:13:12 ERROR  : ERROR:  missing data type declaration at or near ","
+LINE 4:  wgcid, invalid INT;
+              ^
+2016-04-26 00:13:43 ERROR  : ERROR:  syntax error at or near ","
+LINE 4:  wgcid INT, invalid INT;
+                  ^
+2016-04-26 00:13:53 ERROR  : ERROR:  syntax error at or near "INT"
+LINE 4:  wgcid INT invalid INT;
+               ^
+CONTEXT:  invalid type name "INT invalid INT"
+2016-04-26 00:14:07 ERROR  : ERROR:  type "wgcid" does not exist
+LINE 5:  SET wgcid := (SELECT eid FROM greatCompanyIssued WHERE gcid...
+             ^
+2016-04-26 00:15:10 ERROR  : ERROR:  missing data type declaration at or near ","
+LINE 3: DECLARE wgcid, invalid INT;
+                     ^
+2016-04-26 00:17:55 ERROR  : ERROR:  syntax error at or near ","
+LINE 2:  BEFORE INSERT, UPDATE ON issuedArmaments
+                      ^
+2016-04-26 00:18:03 ERROR  : ERROR:  syntax error at or near "UPDATE"
+LINE 2:  BEFORE INSERT UPDATE ON issuedArmaments
+                       ^
+2016-04-26 00:20:56 ERROR  : ERROR:  function getgcequip(integer, unknown) does not exist
+LINE 1694: SELECT getGCEquip(1, 'ref3');
+                  ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2016-04-26 00:21:13 ERROR  : ERROR:  function getgcequip(integer, unknown) does not exist
+LINE 2: SELECT getGCEquip(1, 'ref3');
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2016-04-26 00:21:20 ERROR  : ERROR:  function getgcequip(integer, unknown) does not exist
+LINE 2: SELECT getGCEquip(1, 'ref3');
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2016-04-26 00:21:27 ERROR  : ERROR:  function getdninfobyname(unknown, unknown, unknown) does not exist
+LINE 2: SELECT getDNInfoByName('B%', 'F%', 'ref2');
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2016-04-26 00:21:32 ERROR  : ERROR:  relation "dreadnoughtinfo" does not exist
+LINE 2:         FROM    dreadnoughtInfo
+                        ^
+QUERY:  SELECT	*
+        FROM   	dreadnoughtInfo
+       WHERE  	fname LIKE dnFname
+         AND	lname LIKE dnLname
+CONTEXT:  PL/pgSQL function getdninfobyname(text,text,refcursor) line 7 at OPEN
+2016-04-26 00:21:40 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:22:15 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:22:42 ERROR  : ERROR:  role "adeptus_administratum" already exists
+2016-04-26 00:22:53 ERROR  : ERROR:  relation "spacemarinemods" does not exist
+LINE 2: SELECT * FROM spacemarineMods;
+                      ^
+2016-04-26 00:23:05 ERROR  : ERROR:  role "space_marine" cannot be dropped because some objects depend on it
+DETAIL:  3 objects in database vlkaFenryka
+2016-04-26 00:23:54 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:24:32 ERROR  : ERROR:  syntax error at or near "CASCADE"
+LINE 2: DROP CASCADE ROLE IF EXISTS adeptus_administratum;
+             ^
+2016-04-26 00:24:37 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:14 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:16 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:17 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:17 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:17 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:18 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:18 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:18 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:19 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:25:19 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:27:06 ERROR  : ERROR:  role "adeptus_administratum2" does not exist
+2016-04-26 00:28:08 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:28:17 ERROR  : ERROR:  role "adeptus_administratum" cannot be dropped because some objects depend on it
+DETAIL:  31 objects in database vlkaFenryka
+2016-04-26 00:28:28 ERROR  : ERROR:  role "adeptus_administratum" already exists
+2016-04-26 00:28:57 ERROR  : ERROR:  role "space_marine" cannot be dropped because some objects depend on it
+DETAIL:  3 objects in database vlkaFenryka
+2016-04-26 00:30:01 ERROR  : ERROR:  function getgcequip(integer, unknown) does not exist
+LINE 1694: SELECT getGCEquip(1, 'ref3');
+                  ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2016-04-26 00:35:51 ERROR  : ERROR:  count(*) must be used to call a parameterless aggregate function
+LINE 2: SELECT COUNT() FROM greatCompany;
+               ^
+2016-04-26 00:40:27 ERROR  : ERROR:  function getdninfobyname(integer, unknown) does not exist
+LINE 16: SELECT getDNInfoByName(1, 'ref3');
+                ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
